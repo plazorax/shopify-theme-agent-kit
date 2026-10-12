@@ -1,0 +1,43 @@
+# Theme CI for a Shopify Online Store 2.0 theme.
+#
+# Copy this file to .github/workflows/theme-ci.yml in your theme repository and
+# copy ci/validate-theme-json.mjs to .github/scripts/validate-theme-json.mjs.
+# Set THEME_PATH if the theme is not at the repository root.
+name: Theme CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  THEME_PATH: .
+  SHOPIFY_CLI_VERSION: 4.9.3
+
+jobs:
+  schema-json:
+    name: Validate theme JSON and section schema
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Validate JSON, schema tags and translation keys
+        run: node .github/scripts/validate-theme-json.mjs "$THEME_PATH"
+
+  theme-check:
+    name: Theme Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Install Shopify CLI
+        run: npm install --global "@shopify/cli@${SHOPIFY_CLI_VERSION}"
+      - name: Run Theme Check (fail on errors)
+        run: shopify theme check --path "$THEME_PATH" --fail-level error

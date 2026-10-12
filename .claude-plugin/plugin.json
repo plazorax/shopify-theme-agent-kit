@@ -1,0 +1,14 @@
+{
+  "name": "shopify-theme-agent-kit",
+  "displayName": "Shopify Theme Agent Kit",
+  "version": "0.1.0",
+  "description": "Conventions skill, diff reviewer agent, section scaffolder and a Theme Check hook for Shopify Online Store 2.0 themes.",
+  "author": {
+    "name": "Oleksii Shaposhnikov",
+    "url": "https://github.com/plazorax"
+  },
+  "homepage": "https://github.com/plazorax/shopify-theme-agent-kit",
+  "repository": "https://github.com/plazorax/shopify-theme-agent-kit",
+  "license": "MIT",
+  "keywords": ["shopify", "liquid", "theme", "online-store-2.0", "theme-check"]
+}

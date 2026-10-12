@@ -1,0 +1,20 @@
+{
+  "name": "shopify-theme-agent-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Claude Code plugin and AGENTS.md for Shopify Online Store 2.0 theme development.",
+  "license": "MIT",
+  "author": "Oleksii Shaposhnikov",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "lint": "node --check scripts/theme-check-hook.mjs && node --check ci/validate-theme-json.mjs",
+    "validate:plugin": "claude plugin validate . --strict"
+  },
+  "devDependencies": {
+    "yaml": "^2.8.1"
+  }
+}

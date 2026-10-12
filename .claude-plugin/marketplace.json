@@ -1,0 +1,15 @@
+{
+  "name": "plazorax",
+  "description": "Claude Code plugins by Oleksii Shaposhnikov",
+  "owner": {
+    "name": "Oleksii Shaposhnikov",
+    "url": "https://github.com/plazorax"
+  },
+  "plugins": [
+    {
+      "name": "shopify-theme-agent-kit",
+      "source": "./",
+      "description": "Conventions skill, diff reviewer agent, section scaffolder and a Theme Check hook for Shopify Online Store 2.0 themes."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{% comment %}
+  Deliberately broken section used to demonstrate what the theme-reviewer
+  agent and Theme Check report. Do not copy this into a theme.
+{% endcomment %}
+<script src="https://cdn.example.com/slider.js"></script>
+
+<style>
+  .button { background: {{ section.settings.color }}; }
+  h2 { font-size: 48px; }
+</style>
+
+<div class="slideshow" id="Slideshow">
+  {% for block in section.blocks %}
+    <div class="slide">
+      <img src="{{ block.settings.image | img_url: '1600x' }}">
+      <h2>{{ block.settings.title }}</h2>
+    </div>
+  {% endfor %}
+  <div class="slideshow-next" onclick="nextSlide()">Next</div>
+  <span>{{ 'sections.slideshow.pause' | t }}</span>
+</div>
+
+<script>
+  var current = 0;
+  function nextSlide() { current++; }
+  setInterval(nextSlide, {{ section.settings.autoPlaySpeed }});
+</script>
+
+{% schema %}
+{
+  "name": "Slideshow",
+  "settings": [
+    { "type": "color", "id": "color", "label": "Button color" },
+    { "type": "range", "id": "autoPlaySpeed", "label": "Speed", "min": 1000, "max": 9000, "step": 1000, "default": 5000 },
+    { "type": "checkbox", "id": "color", "label": "Show arrows", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title" }
+      ]
+    }
+  ]
+}
+{% endschema %}
