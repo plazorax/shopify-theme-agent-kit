@@ -1,4 +1,4 @@
-# shopify-theme-agent-kit
+# Shopify Theme Agent Kit
 
 ![CI](https://github.com/plazorax/shopify-theme-agent-kit/actions/workflows/ci.yml/badge.svg)
 
